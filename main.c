@@ -15,11 +15,10 @@ int main() {
   c.red = MAX_COLOR;
   c.green = MAX_COLOR;
   c.blue = MAX_COLOR;
-  
+
+  clear_screen(s);  
+
   draw_line(0, 0, 100, 100, s, c);
-
-  clear_screen(s);
-
 
   display(s);
   save_extension(s, "lines.png");
