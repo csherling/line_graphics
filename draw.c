@@ -22,7 +22,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
     }
     x++;
     d+=2*a;
-  printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
+    printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
   }
   
 }
