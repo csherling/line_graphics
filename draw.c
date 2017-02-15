@@ -41,11 +41,11 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   }//check for infinite slope
   else{
     int slope = a / (-b); //issue here
-    printf("Slope: %d\n", slope);
-    printf("0 x %d, y %d, a %d, b %d, slo %d\n", x,y,a,b,slope);
+    //printf("Slope: %d\n", slope);
+    //printf("0 x %d, y %d, a %d, b %d, slo %d\n", x,y,a,b,slope);
     if(slope <= 1 && slope >= 0 && y1 - y0 > 0){
       int d = 2*a + b;
-      printf("1 x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
+      //printf("1 x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       while(x < x1){
 	plot(s, c, x,y);
 	if(d>0){
@@ -54,12 +54,12 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
 	}
 	x++;
 	d+=2*a;
-	printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
+	//printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       }
     }//octant one
     else if(slope > 1){
       int d = 2*b + a;
-      printf("2 x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
+      //printf("2 x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       while(y < y1){
 	plot(s, c, x,y);
 	if(d<0){
@@ -68,12 +68,12 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
 	}
 	y++;
 	d+=2*b;
-	printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
+	//printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       }
     }//octant two
     else if(slope > -1 && slope <= 0 && y1 - y0 < 0){
       int d = 2*a - b;
-      printf("8 x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
+      //printf("8 x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       while(x < x1){
 	plot(s, c, x,y);
 	if(d<0){
@@ -82,12 +82,12 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
 	}
 	x++;
 	d+=2*a;
-	printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
+	//printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       }
     }//octant eight
     else{
       int d = a - 2*b;
-      printf("7 x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
+      //printf("7 x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       while(y > y1){
 	plot(s, c, x,y);
 	if(d>0){
@@ -96,7 +96,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
 	}
 	y--;
 	d-=2*b;
-	printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
+	//printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       }
     }//octant seven
     
