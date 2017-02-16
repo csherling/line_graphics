@@ -43,7 +43,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
     int slope = a / (-b); //issue here
     //printf("Slope: %d\n", slope);
     //printf("0 x %d, y %d, a %d, b %d, slo %d\n", x,y,a,b,slope);
-    if(slope <= 1 && slope >= 0 && y1 - y0 > 0){
+    if(slope < 1 && slope >= 0 && y1 - y0 > 0){
       int d = 2*a + b;
       //printf("1 x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       while(x < x1){
@@ -57,7 +57,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
 	//printf("x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       }
     }//octant one
-    else if(slope > 1){
+    else if(slope >= 1){
       int d = 2*b + a;
       //printf("2 x %d, y %d, a %d, b %d, d %d\n", x,y,a,b,d);
       while(y < y1){

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #include "ml6.h"
 #include "display.h"
@@ -23,22 +24,6 @@ int main() {
   /* draw_line(0, 0, 100, 0, s, c); */
   /* draw_line(200, 200, 100, 100, s, c); */
 
-  /* draw_line(250, 250, 250, 500, s, c); */
-  /* draw_line(250, 250, 375, 500, s, c); */
-  /* draw_line(250, 250, 500, 500, s, c); */
-  /* draw_line(250, 250, 500, 375, s, c); */
-  /* draw_line(250, 250, 500, 250, s, c); */
-  /* draw_line(250, 250, 500, 125, s, c); */
-  /* draw_line(250, 250, 500, 0, s, c); */
-  /* draw_line(250, 250, 375, 0, s, c); */
-  /* draw_line(250, 250, 250, 0, s, c); */
-  /* draw_line(250, 250, 125, 0, s, c); */
-  /* draw_line(250, 250, 0, 0, s, c); */
-  /* draw_line(250, 250, 0, 125, s, c); */
-  /* draw_line(250, 250, 0, 250, s, c); */
-  /* draw_line(250, 250, 0, 375, s, c); */
-  /* draw_line(250, 250, 0, 500, s, c); */
-  /* draw_line(250, 250, 125, 500, s, c); */ //test code
 
   /* draw_line(100, 400, 250, 400, s, c); */
   /* draw_line(100, 400, 100, 300, s, c); */
@@ -65,19 +50,48 @@ int main() {
   /* draw_line(216, 270, 220, 272, s, c);  */ //holmes's laptop (nub)
 
   int x;
-  int y;
-  for(x = 0; x < 10; x++){
-    for(y = 0; y < 10; y++){
-      draw_line(0, 25*y, 500 - 50*x, 0, s, c);
-      draw_line(0, 25*y, 500 - 50*x, 0, s, c);
-      draw_line(0, 25*y, 500 - 50*x, 0, s, c);
-      draw_line(0, 25*y, 500 - 50*x, 0, s, c);
-      draw_line(25*x, 0, 0,500 - 50*y, s, c);
-      draw_line(25*x, 0, 0,500 - 50*y, s, c);
-      draw_line(25*x, 0, 0,500 - 50*y, s, c);
-      draw_line(25*x, 0, 0,500 - 50*y, s, c);
-    }
+  double d;
+  for(x = 0; x < 125; x++){
+    c.red = x * 2;
+    c.green = (x*c.red+128) % 256;			\
+    c.blue = (x*c.green) % 256;
+    draw_line(0,4*x,500 - 4*x, 0,s,c);
+    draw_line(4*x,500,0,4*x,s,c);    
+    draw_line(500,500-4*x,4*x,500, s,c);
+    draw_line(500-4*x, 0, 500, 500-4*x, s, c);
   }
+  draw_line(250, 250, 250, 500, s, c); c.red = 255;
+  draw_line(250, 250, 375, 500, s, c); c.green = 0;
+  draw_line(250, 250, 500, 500, s, c); c.blue = 127;
+  draw_line(250, 250, 500, 375, s, c); c.red = 127;
+  draw_line(250, 250, 500, 250, s, c); c.green = 127;
+  draw_line(250, 250, 500, 125, s, c); c.blue = 255;
+  draw_line(250, 250, 500, 0, s, c); c.red = 0;
+  draw_line(250, 250, 375, 0, s, c); c.green = 255;
+  draw_line(250, 250, 250, 0, s, c); c.blue = 127;
+  draw_line(250, 250, 125, 0, s, c); c.red = 255;
+  draw_line(250, 250, 0, 0, s, c); c.green = 0;
+  draw_line(250, 250, 0, 125, s, c); c.blue = 255;
+  draw_line(250, 250, 0, 250, s, c); c.red = 127;
+  draw_line(250, 250, 0, 375, s, c); c.green = 127;
+  draw_line(250, 250, 0, 500, s, c); c.blue = 127;
+  draw_line(250, 250, 125, 500, s, c); c.red = 0;
+
+  /* draw_line(100, 100, 200, 225, s, c); */
+  /* draw_line(105, 100, 205, 200, s, c); */
+  /* int y; */
+  /* for(x = 0; x < 10; x++){ */
+  /*   for(y = 0; y < 10; y++){ */
+  /*     draw_line(0, 25*y, 500 - 50*x, 0, s, c); */
+  /*     draw_line(25*x, 0, 0,500 - 50*y, s, c); */
+  /*     draw_line(500, 25*y, 500 - 50*x, 500, s, c); */
+  /*     draw_line(25*x, 500, 500,500 - 50*y, s, c); */
+  /*     /\* draw_line(0, 25*y, 500 - 50*x, 500, s, c); *\/ */
+  /*     /\* draw_line(25*x, 0, 500,500 - 50*y, s, c); *\/ */
+  /*     /\* draw_line(500, 25*y, 500 - 50*x, 0, s, c); *\/ */
+  /*     /\* draw_line(25*x, 500, 0,500 - 50*y, s, c); *\/ */
+  /*   } */
+  /* } */
 
   
   display(s);
